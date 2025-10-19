@@ -1076,8 +1076,8 @@ p {
 }
 
 .footer-logo img {
-    width: 30px;
-    height: 30px;
+    width: 120px;
+    height: 50px;
 }
 
 .footer-section h4 {
@@ -1458,4 +1458,5 @@ p {
 #verification-result.authentic-result #result-details,
 #verification-result.invalid-result #result-details {
     color: white;
+
 }
