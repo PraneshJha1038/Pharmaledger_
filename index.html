@@ -9,14 +9,13 @@
         content="PharmaLedger - Fighting counterfeit medicines in India through blockchain-powered verification">
     <meta name="keywords" content="pharmaceutical, counterfeit, medicine, verification, healthcare, India">
     <title>PharmaLedger | Fighting Counterfeit Medicines in India</title>
-    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
@@ -36,8 +35,8 @@
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
                     <i class="fas fa-moon" id="theme-icon"></i>
                 </button>
-                <a href="login.html" class="btn btn-outline" id="login-btn">Login</a>
-                <a href="#register" class="btn btn-primary" style="display: none;" id="register-btn">Register</a>
+                <a href="html/login.html" class="btn btn-outline" id="login-btn">Login</a>
+                <a href="#register" class="btn btn-primary" style="display: none;" id="register-btn">Register</a> <!--cancelled-->
                 <div class="mobile-menu-toggle" id="mobile-menu-toggle">
                     <span></span>
                     <span></span>
@@ -47,7 +46,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-container">
             <div class="hero-content">
@@ -113,8 +111,7 @@
             <div class="bg-gradient-2"></div>
         </div>
     </section>
-
-    <!-- Quick Verification Section -->
+    
     <section class="verification-section" id="verify">
         <div class="container">
             <div class="section-header">
@@ -129,7 +126,7 @@
                     </button>
                     <button class="tab-btn" data-tab="qr">
                         <i class="fas fa-qrcode"></i>
-                        QR Scan
+                        QR Scan <!--baad mein kabhi-->
                     </button>
                 </div>
 
@@ -138,7 +135,7 @@
                         <div class="form-group">
                             <label for="batch-number">Batch Number</label>
                             <input type="text" id="batch-number" name="batch-number"
-                                placeholder="Enter batch number (e.g., DP001/2025)" required>
+                                placeholder="Enter batch number (e.g., ABC1234567)" required>
                         </div>
                         <button type="submit" class="btn btn-primary">
                             <i class="fas fa-search"></i>
@@ -176,13 +173,11 @@
             </div>
         </div>
     </section>
-
-    <!-- How It Works Section -->
     <section class="how-it-works" id="how-it-works">
         <div class="container">
             <div class="section-header">
                 <h2>How It Works</h2>
-                <p>A simple 4-step process to ensure medicine authenticity</p>
+                <p>A simple 4-step process to ensure medicine authenticty</p>
             </div>
             <div class="steps-container">
                 <div class="step-item" data-step="1">
@@ -227,8 +222,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Features Section -->
     <section class="features" id="features">
         <div class="container">
             <div class="section-header">
@@ -281,8 +274,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Statistics Section -->
     <section class="statistics">
         <div class="container">
             <div class="stats-grid">
@@ -306,7 +297,6 @@
         </div>
     </section>
 
-    <!-- Stakeholders Section -->
     <section class="stakeholders" id="stakeholders">
         <div class="container">
             <div class="section-header">
@@ -360,7 +350,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
             <div class="about-content">
@@ -392,6 +381,7 @@
                                 <li>1 in 10 medicines sold in India are counterfeit</li>
                                 <li>$4.3 billion counterfeit drug market</li>
                                 <li>20-25% of global counterfeit drugs from India</li>
+                                <li>No centralized platform to oversee and empower citizens with counterfeit protectiion</li>
                             </ul>
                         </div>
                         <div class="about-stat">
@@ -408,7 +398,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-header">
@@ -469,19 +458,18 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iOCIgZmlsbD0iIzE1NjVDMCIvPgo8cGF0aCBkPSJNMTIgMTJIMjhWMTZIMTJWMTJaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMTIgMjBIMjhWMjRIMTJWMjBaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMTIgMjhIMjBWMzJIMTJWMjhaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K"
+                        <img src="images/favicon.png"
                             alt="PharmaLedger">
-                        <span>PharmaLedger</span>
+                        <!-- <span>PharmaLedger</span>  -->
                     </div>
                     <p>Fighting counterfeit medicines in India through innovative technology and collaborative
                         verification.</p>
-                    <div class="social-links">
+                    <div class="social-links"> <!--not working | no sample profile to link-->
                         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                         <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
@@ -522,15 +510,13 @@
         </div>
     </footer>
 
-    <!-- Scroll Progress Indicator -->
     <div class="scroll-progress" id="scroll-progress"></div>
-
-    <!-- Back to Top Button -->
     <button class="back-to-top" id="back-to-top" aria-label="Back to top">
         <i class="fas fa-chevron-up"></i>
     </button>
 
-    <script src="/js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
+
 
 </html>
