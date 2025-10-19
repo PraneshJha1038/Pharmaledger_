@@ -174,7 +174,7 @@ class VerificationManager {
             resultDiv.classList.remove('authentic-result');
 
             if (data.status === 'Expired') {
-                detailsEl.innerHTML += `<br><small style="color: var(--warning);">⚠️ This medicine has expired. Do not use.</small>`;
+                detailsEl.innerHTML += `<br><small style="color: skyblue;">⚠️ This medicine has expired. Do not use.</small>`;
             }
         }
 
@@ -564,4 +564,5 @@ if ('serviceWorker' in navigator) {
             .catch(error => console.log('ServiceWorker registration failed'));
     });
 }
+
 
