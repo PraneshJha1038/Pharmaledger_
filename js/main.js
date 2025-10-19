@@ -1,4 +1,3 @@
-// Theme Manager
 class ThemeManager {
     constructor() {
         this.themeToggle = document.getElementById('theme-toggle');
@@ -7,11 +6,8 @@ class ThemeManager {
     }
 
     init() {
-        // Load saved theme or default to light
         const savedTheme = localStorage.getItem('theme') || 'light';
         this.setTheme(savedTheme);
-
-        // Add event listener for theme toggle
         this.themeToggle?.addEventListener('click', () => this.toggleTheme());
     }
 
@@ -40,13 +36,9 @@ class NavbarManager {
     }
 
     init() {
-        // Scroll effect
         window.addEventListener('scroll', () => this.handleScroll());
-
         // Mobile menu toggle
         this.mobileMenuToggle?.addEventListener('click', () => this.toggleMobileMenu());
-
-        // Smooth scrolling for nav links
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', e => {
                 e.preventDefault();
@@ -80,7 +72,6 @@ class NavbarManager {
     }
 }
 
-// Verification System (FULLY UPDATED - BACKEND INTEGRATION + INVALID FIX)
 class VerificationManager {
     constructor() {
         this.tabButtons = document.querySelectorAll('.tab-btn');
@@ -93,7 +84,6 @@ class VerificationManager {
     }
 
     init() {
-        // Tab switching
         this.tabButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const tabId = button.getAttribute('data-tab');
@@ -101,7 +91,6 @@ class VerificationManager {
             });
         });
 
-        // Manual verification form
         this.manualForm?.addEventListener('submit', e => {
             e.preventDefault();
             this.handleManualVerification();
@@ -286,7 +275,6 @@ class VerificationManager {
     }
 }
 
-// Statistics Counter Animation
 class StatsCounter {
     constructor() {
         this.counters = document.querySelectorAll('.stat-number[data-target]');
@@ -324,7 +312,7 @@ class StatsCounter {
     }
 }
 
-// Scroll Progress Indicator
+// Scroll_Progress
 class ScrollProgress {
     constructor() {
         this.progressBar = document.getElementById('scroll-progress');
@@ -345,7 +333,6 @@ class ScrollProgress {
     }
 }
 
-// Back to Top Button
 class BackToTop {
     constructor() {
         this.button = document.getElementById('back-to-top');
@@ -370,7 +357,6 @@ class BackToTop {
     }
 }
 
-// Form Handler (for contact form)
 class FormHandler {
     constructor() {
         this.contactForm = document.getElementById('contact-form');
@@ -434,7 +420,6 @@ class FormHandler {
     }
 }
 
-// Animation on Scroll
 class ScrollAnimations {
     constructor() {
         this.animatedElements = document.querySelectorAll('.feature-card, .step-item, .stakeholder-card');
@@ -460,7 +445,6 @@ class ScrollAnimations {
     }
 }
 
-// Utility Functions
 const utils = {
     debounce(func, wait) {
         let timeout;
@@ -497,7 +481,6 @@ const utils = {
     }
 };
 
-// Performance Monitoring
 const performance = {
     trackPageLoad() {
         window.addEventListener('load', () => {
@@ -521,7 +504,6 @@ const performance = {
     }
 };
 
-// Initialize Application
 class App {
     constructor() {
         this.init();
@@ -569,14 +551,12 @@ class App {
     }
 }
 
-// Start the application
 const app = new App();
 
 if (typeof module !== 'undefined') {
     module.exports = { App, utils };
 }
 
-// Service Worker (optional)
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js')
@@ -584,3 +564,4 @@ if ('serviceWorker' in navigator) {
             .catch(error => console.log('ServiceWorker registration failed'));
     });
 }
+
