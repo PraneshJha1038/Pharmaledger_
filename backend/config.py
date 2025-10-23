@@ -4,11 +4,12 @@ class Config:
     """Configuration class for Flask application"""
     SECRET_KEY = '46d77a9ec3a06af27bcdd45169cc203c'
     
-    # Database connection URI
+    # sql connextion
     SQLALCHEMY_DATABASE_URI = 'mysql+mysqlconnector://root:Shine2107@127.0.0.1:3306/pharmaledger'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SQLALCHEMY_ECHO = False  # Set to True for SQL query debugging
+    SQLALCHEMY_ECHO = False  
     
-    # Upload folder for files
+    # folder path to save pharmacy and manufacturer's uploaded files
     UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static', 'uploads')
-    MAX_CONTENT_LENGTH = 16 * 1024 * 1024  # 16MB max file size
+    MAX_CONTENT_LENGTH = 10 * 1024 * 1024  
+
