@@ -9,17 +9,18 @@
         content="PharmaLedger - Fighting counterfeit medicines in India through blockchain-powered verification">
     <meta name="keywords" content="pharmaceutical, counterfeit, medicine, verification, healthcare, India">
     <title>PharmaLedger | Fighting Counterfeit Medicines in India</title>
-    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+   
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="images/favicon.png" alt="PharmaLedger Logo">
+                <img src="/images/favicon.png" alt="PharmaLedger Logo">
                 <!-- <span>PharmaLedger</span> -->
             </div>
 
@@ -35,8 +36,8 @@
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
                     <i class="fas fa-moon" id="theme-icon"></i>
                 </button>
-                <a href="html/login.html" class="btn btn-outline" id="login-btn">Login</a>
-                <a href="#register" class="btn btn-primary" style="display: none;" id="register-btn">Register</a> <!--cancelled-->
+                <a href="login.html" class="btn btn-outline" id="login-btn">Login</a>
+                <a href="#register" class="btn btn-primary" style="display: none;" id="register-btn">Register</a>
                 <div class="mobile-menu-toggle" id="mobile-menu-toggle">
                     <span></span>
                     <span></span>
@@ -111,7 +112,7 @@
             <div class="bg-gradient-2"></div>
         </div>
     </section>
-    
+
     <section class="verification-section" id="verify">
         <div class="container">
             <div class="section-header">
@@ -126,7 +127,7 @@
                     </button>
                     <button class="tab-btn" data-tab="qr">
                         <i class="fas fa-qrcode"></i>
-                        QR Scan <!--baad mein kabhi-->
+                        QR Scan
                     </button>
                 </div>
 
@@ -135,7 +136,7 @@
                         <div class="form-group">
                             <label for="batch-number">Batch Number</label>
                             <input type="text" id="batch-number" name="batch-number"
-                                placeholder="Enter batch number (e.g., ABC1234567)" required>
+                                placeholder="Enter batch number (e.g., DP001/2025)" required>
                         </div>
                         <button type="submit" class="btn btn-primary">
                             <i class="fas fa-search"></i>
@@ -173,11 +174,12 @@
             </div>
         </div>
     </section>
+
     <section class="how-it-works" id="how-it-works">
         <div class="container">
             <div class="section-header">
                 <h2>How It Works</h2>
-                <p>A simple 4-step process to ensure medicine authenticty</p>
+                <p>A simple 4-step process to ensure medicine authenticity</p>
             </div>
             <div class="steps-container">
                 <div class="step-item" data-step="1">
@@ -222,6 +224,7 @@
             </div>
         </div>
     </section>
+
     <section class="features" id="features">
         <div class="container">
             <div class="section-header">
@@ -274,6 +277,7 @@
             </div>
         </div>
     </section>
+
     <section class="statistics">
         <div class="container">
             <div class="stats-grid">
@@ -381,7 +385,6 @@
                                 <li>1 in 10 medicines sold in India are counterfeit</li>
                                 <li>$4.3 billion counterfeit drug market</li>
                                 <li>20-25% of global counterfeit drugs from India</li>
-                                <li>No centralized platform to oversee and empower citizens with counterfeit protectiion</li>
                             </ul>
                         </div>
                         <div class="about-stat">
@@ -412,7 +415,7 @@
                         </div>
                         <div class="contact-details">
                             <h4>Email Us</h4>
-                            <p>info@pharmaledger.com</p>
+                            <p><a href="mailto:mssuphldr@gmail.com" id="mail_a">info@pharmaledger.com</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -463,13 +466,12 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <img src="images/favicon.png"
+                        <img src="/images/favicon.png"
                             alt="PharmaLedger">
-                        <!-- <span>PharmaLedger</span>  -->
                     </div>
                     <p>Fighting counterfeit medicines in India through innovative technology and collaborative
                         verification.</p>
-                    <div class="social-links"> <!--not working | no sample profile to link-->
+                    <div class="social-links">
                         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                         <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
@@ -511,13 +513,12 @@
     </footer>
 
     <div class="scroll-progress" id="scroll-progress"></div>
+
     <button class="back-to-top" id="back-to-top" aria-label="Back to top">
         <i class="fas fa-chevron-up"></i>
     </button>
 
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 
-
 </html>
-
