@@ -1,8 +1,3 @@
-#!/usr/bin/env python3
-"""
-PharmaLedger - Medicine Batch Data Loader
-Updated to handle duplicates and deprecation.
-"""
 import os
 import csv
 import sys
@@ -11,61 +6,61 @@ from sqlalchemy import create_engine, text
 from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 from sqlalchemy.orm import sessionmaker
 
-# DB Config (update with your details)
+# database configuration ( removed all the info for privacy )
 DB_CONFIG = {
-    'user': 'root',
-    'password': 'Shine2107',  # Change to your MySQL password
-    'host': '127.0.0.1:3306',
-    'database': 'pharmaledger',
+    'user': '--',
+    'password': '---',  
+    'host': '---',
+    'database': '---',
     'port': 3306
 }
 
-# Connection string for SQLAlchemy
-ENGINE_URL = 'mysql+mysqlconnector://root:Shine2107@127.0.0.1:3306/pharmaledger'
-CSV_FILE = 'medicine_batches.csv'  # Assumes in current dir; adjust path if needed
+# connecting to Sql
+ENGINE_URL = '--' # again removed the url link for privacy
+CSV_FILE = 'medicine_batches.csv'  # csv file location wrt the backend folder
 
 def load_batches_to_db():
     """
-    Load CSV data into medicine_batches table.
+    Load CSV data into medicine_batches table. 
     """
     if not os.path.exists(CSV_FILE):
         print(f"✗ CSV file '{CSV_FILE}' not found in {os.getcwd()}")
         sys.exit(1)
 
+    # printing to know the task has been done
     print("PharmaLedger - Medicine Batch Data Loader")
     print("=" * 60)
     print(f"Loading data from: {CSV_FILE}")
     print("-" * 60)
 
-    # Create engine and session
-    engine = create_engine(ENGINE_URL, echo=False)  # Set echo=True for debug SQL
-    Session = sessionmaker(bind=engine)
+    
+    engine = create_engine(ENGINE_URL, echo=False)  
+    Session = sessionmaker(bind=engine) # for further development, hasn't been implemented yet
     session = Session()
 
     try:
-        # Step 1: Truncate table to clear existing data (resets duplicates)
         print("Clearing existing data...")
         with engine.connect() as conn:
             conn.execute(text("TRUNCATE TABLE medicine_batches"))
             conn.commit()
         print("✓ Table truncated successfully.")
 
-        # Step 2: Read CSV and prepare inserts
+        # using file handling to read the csv file and hence uploading to the database
         batches = []
         with open(CSV_FILE, 'r', encoding='utf-8') as file:
             reader = csv.DictReader(file)
-            for row_num, row in enumerate(reader, start=2):  # Start=2 skips header
-                if not row or not any(row.values()):  # Skip empty rows
+            for row_num, row in enumerate(reader, start=2):  # i started it from the second row to skep adding the header, because it is of no use and will construct an already existing error
+                if not row or not any(row.values()):  # skiping the empty rows ( if any )
                     continue
-                # Map CSV keys to DB columns; set date_uploaded now
+                # preparing the batch data to be finally uploaded to the database
                 batch_data = {
-                    'medicine_id': int(row['medicine_id']) if row.get('medicine_id') else None,
+                    'medicine_id': int(row['medicine_id']) if row.get('medicine_id') else None, # planning to remove that none further, present as of now to skip error
                     'batch_number': row['batch_number'].strip().upper(),
                     'medicine_name': row['medicine_name'].strip(),
-                    'manufacture_date': row['manufacture_date'],  # Assumes YYYY-MM-DD string; SQLAlchemy parses
+                    'manufacture_date': row['manufacture_date'],
                     'expiry_date': row['expiry_date'],
                     'pharmacy_name': row['pharmacy_name'].strip() if row.get('pharmacy_name') else None,
-                    'date_uploaded': datetime.now(timezone.utc)  # Fixed: Use timezone-aware UTC
+                    'date_uploaded': datetime.now(timezone.iso) # using iso date format as it's nation based as of now
                 }
                 batches.append(batch_data)
                 if len(batches) % 5 == 0:
@@ -77,7 +72,6 @@ def load_batches_to_db():
 
         print(f"Inserting {len(batches)} batches...")
 
-        # Step 3: Batch insert with SQLAlchemy text query
         insert_sql = text("""
             INSERT INTO medicine_batches 
             (medicine_id, batch_number, medicine_name, manufacture_date, expiry_date, pharmacy_name, date_uploaded) 
@@ -85,13 +79,12 @@ def load_batches_to_db():
         """)
 
         with engine.connect() as conn:
-            conn.execute(insert_sql, batches)  # executemany via list of dicts
+            conn.execute(insert_sql, batches)  
             conn.commit()
 
         print("✓ Data loaded successfully!")
         print(f"Total batches inserted: {len(batches)}")
 
-        # Optional: Verify a sample query
         with engine.connect() as conn:
             result = conn.execute(text("SELECT COUNT(*) FROM medicine_batches")).scalar()
             print(f"DB verification: {result} rows in table.")
@@ -116,3 +109,5 @@ def load_batches_to_db():
 
 if __name__ == '__main__':
     load_batches_to_db()
+
+# end of file
