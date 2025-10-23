@@ -1,4 +1,4 @@
-/* Reset and Base Styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -19,7 +19,6 @@ body {
     min-height: 100vh;
 }
 
-/* CSS Variables - Light Theme (Matching index.html) */
 :root {
     --primary: #1565C0;
     --primary-light: #1976D2;
@@ -58,7 +57,6 @@ body {
     --gradient-bg: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-primary) 90%);
 }
 
-/* Dark Theme Variables */
 [data-theme="dark"] {
     --text-primary: #f1f5f9;
     --text-secondary: #cbd5e1;
@@ -80,7 +78,6 @@ body {
     --shadow-card: 0 4px 6px -1px rgba(21, 101, 192, 0.2), 0 2px 4px -1px rgba(21, 101, 192, 0.15);
 }
 
-/* Typography */
 h1,
 h2,
 h3,
@@ -118,14 +115,13 @@ p {
     color: var(--danger);
 }
 
-/* Container */
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
 }
 
-/* Buttons */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -188,7 +184,6 @@ p {
     transform: none !important;
 }
 
-/* Navbar */
 .navbar {
     position: fixed;
     top: 0;
@@ -261,7 +256,6 @@ p {
     transform: rotate(180deg) scale(1.1);
 }
 
-/* Registration Header */
 .registration-header {
     background: var(--gradient-bg);
     padding: 8rem 0 4rem;
@@ -395,7 +389,6 @@ p {
     font-size: 0.9rem;
 }
 
-/* Progress Section */
 .progress-section {
     background: var(--bg-secondary);
     padding: 2rem 0;
@@ -478,7 +471,6 @@ p {
     font-weight: 600;
 }
 
-/* Form Section */
 .registration-form-section {
     padding: 3rem 0;
     background: var(--bg-primary);
@@ -683,7 +675,6 @@ p {
     width: 100%;
 }
 
-/* File Upload */
 .file-upload-area {
     border: 2px dashed var(--border-medium);
     border-radius: 0.5rem;
@@ -771,7 +762,7 @@ p {
     transform: scale(1.1);
 }
 
-/* Document Checklist */
+
 .document-checklist {
     background: var(--bg-tertiary);
     padding: 1.5rem;
@@ -806,7 +797,6 @@ p {
     font-size: 1rem;
 }
 
-/* Checkbox */
 .checkbox-wrapper {
     display: flex;
     align-items: flex-start;
@@ -850,7 +840,6 @@ p {
     transform: rotate(45deg);
 }
 
-/* Review Section */
 .review-sections {
     display: flex;
     flex-direction: column;
@@ -938,7 +927,7 @@ p {
     color: var(--primary-dark);
 }
 
-/* Form Navigation */
+
 .form-navigation {
     display: flex;
     justify-content: space-between;
@@ -949,7 +938,7 @@ p {
     margin: -2rem -2rem 0;
 }
 
-/* Success Message */
+
 .success-message {
     text-align: center;
     padding: 3rem 2rem;
@@ -1012,7 +1001,6 @@ p {
     margin-top: 2rem;
 }
 
-/* Help Section */
 .help-section {
     display: grid;
     grid-template-columns: 1fr;
@@ -1106,7 +1094,6 @@ p {
     color: var(--success);
 }
 
-/* Footer */
 .footer {
     background: var(--bg-tertiary);
     padding: 3rem 0 1rem;
@@ -1171,7 +1158,6 @@ p {
     color: var(--text-secondary);
 }
 
-/* Loading Overlay */
 .loading-overlay {
     position: fixed;
     top: 0;
@@ -1226,7 +1212,6 @@ p {
     margin: 0;
 }
 
-/* Responsive Design */
 @media (max-width: 1024px) {
     .header-content {
         grid-template-columns: 1fr;
@@ -1334,7 +1319,6 @@ p {
     }
 }
 
-/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
@@ -1343,13 +1327,11 @@ p {
     }
 }
 
-/* Focus Styles */
 *:focus {
     outline: 2px solid var(--primary);
     outline-offset: 2px;
 }
 
-/* Selection Styles */
 ::selection {
     background: var(--primary);
     color: white;
@@ -1360,7 +1342,6 @@ p {
     color: white;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
 }
