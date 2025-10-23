@@ -1,5 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from werkzeug.security import generate_password_hash, check_password_hash
 
 db = SQLAlchemy()
 
@@ -18,7 +19,7 @@ class Manufacturer(db.Model):
     registered_address = db.Column(db.Text, nullable=True)
     contact_name = db.Column(db.String(100), nullable=False)
     contact_designation = db.Column(db.String(100), nullable=True)
-    contact_phone = db.Column(db.String(20), nullable=False)
+    contact_phone = db.Column(db.String(20), nullable=False, unique=True)
     contact_email = db.Column(db.String(150), unique=True, nullable=False)
     official_email = db.Column(db.String(150), nullable=True)
     website = db.Column(db.String(200), nullable=True)
@@ -30,10 +31,17 @@ class Manufacturer(db.Model):
     status = db.Column(db.String(50), default='pending')
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-
+    
+    def set_password(self, password):
+        """Hash and set password"""
+        self.password_hash = generate_password_hash(password)
+    
+    def check_password(self, password):
+        """Verify password against hash"""
+        return check_password_hash(self.password_hash, password)
+    
     def __repr__(self):
         return f'<Manufacturer {self.company_name}>'
-
 
 class Pharmacy(db.Model):
     """Pharmacy model for storing pharmacy registration data"""
@@ -54,7 +62,7 @@ class Pharmacy(db.Model):
     owner_pan = db.Column(db.String(10), nullable=True)
     contact_name = db.Column(db.String(100), nullable=False)
     contact_designation = db.Column(db.String(100), nullable=True)
-    contact_phone = db.Column(db.String(20), nullable=False)
+    contact_phone = db.Column(db.String(20), nullable=False, unique=True)
     contact_email = db.Column(db.String(150), unique=True, nullable=False)
     password_hash = db.Column(db.String(255), nullable=False)
     license_file = db.Column(db.String(255), nullable=True)
@@ -64,10 +72,31 @@ class Pharmacy(db.Model):
     status = db.Column(db.String(50), default='pending')
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-
+    
+    def set_password(self, password):
+        """Hash and set password"""
+        self.password_hash = generate_password_hash(password)
+    
+    def check_password(self, password):
+        """Verify password against hash"""
+        return check_password_hash(self.password_hash, password)
+    
+    def to_dict(self):
+        """Convert model to dictionary for API responses"""
+        return {
+            'id': self.id,
+            'pharmacy_name': self.pharmacy_name,
+            'pharmacy_type': self.pharmacy_type,
+            'license_number': self.license_number,
+            'contact_name': self.contact_name,
+            'contact_email': self.contact_email,
+            'contact_phone': self.contact_phone,
+            'status': self.status,
+            'created_at': self.created_at.strftime('%Y-%m-%d %H:%M:%S') if self.created_at else None
+        }
+    
     def __repr__(self):
         return f'<Pharmacy {self.pharmacy_name}>'
-
 
 class MedicineBatch(db.Model):
     """Medicine batch model for storing medicine batch verification data"""
@@ -80,9 +109,9 @@ class MedicineBatch(db.Model):
     expiry_date = db.Column(db.Date, nullable=False)
     pharmacy_name = db.Column(db.String(255), nullable=True)
     date_uploaded = db.Column(db.DateTime, default=datetime.utcnow)
-
+    
     def __repr__(self):
-        return f'<MedicineBatch {self.medicine_name} - {self.batch_number}>'
+        return f'<MedicineBatch {self.batch_number}>'
     
     def to_dict(self):
         """Convert model to dictionary for API responses"""
