@@ -57,7 +57,6 @@ body {
     --gradient-bg: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
 }
 
-/* Dark Theme Variables */
 [data-theme="dark"] {
     --text-primary: #f1f5f9;
     --text-secondary: #cbd5e1;
@@ -80,7 +79,7 @@ body {
     --gradient-bg: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-primary) 90%);
 }
 
-/* Typography */
+
 h1,
 h2,
 h3,
@@ -118,14 +117,13 @@ p {
     color: var(--danger);
 }
 
-/* Container */
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
 }
 
-/* Buttons */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -188,7 +186,6 @@ p {
     transform: none !important;
 }
 
-/* Navbar */
 .navbar {
     position: fixed;
     top: 0;
@@ -261,7 +258,6 @@ p {
     transform: rotate(180deg) scale(1.1);
 }
 
-/* Registration Header */
 .registration-header {
     background: var(--gradient-bg);
     padding: 8rem 0 4rem;
@@ -367,7 +363,6 @@ p {
     color: var(--text-secondary);
 }
 
-/* Progress Section */
 .progress-section {
     background: var(--bg-secondary);
     padding: 2rem 0;
@@ -450,7 +445,6 @@ p {
     font-weight: 600;
 }
 
-/* Form Section */
 .registration-form-section {
     padding: 3rem 0;
     background: var(--bg-primary);
@@ -644,7 +638,6 @@ p {
     width: 100%;
 }
 
-/* File Upload */
 .file-upload-area {
     border: 2px dashed var(--border-medium);
     border-radius: 0.5rem;
@@ -653,6 +646,7 @@ p {
     transition: all 0.3s ease;
     cursor: pointer;
     position: relative;
+    color: var(--text-primary);
     background: var(--bg-secondary);
 }
 
@@ -732,7 +726,6 @@ p {
     transform: scale(1.1);
 }
 
-/* Checkbox */
 .checkbox-wrapper {
     display: flex;
     align-items: flex-start;
@@ -776,7 +769,6 @@ p {
     transform: rotate(45deg);
 }
 
-/* Review Section */
 .review-sections {
     display: flex;
     flex-direction: column;
@@ -860,7 +852,6 @@ p {
     color: var(--primary-dark);
 }
 
-/* Form Navigation */
 .form-navigation {
     display: flex;
     justify-content: space-between;
@@ -871,7 +862,6 @@ p {
     margin: -2rem -2rem 0;
 }
 
-/* Success Message */
 .success-message {
     text-align: center;
     padding: 3rem 2rem;
@@ -880,6 +870,7 @@ p {
     box-shadow: var(--shadow-card);
     border: 1px solid var(--border-light);
     animation: fadeIn 0.5s ease;
+    display: none;
 }
 
 .success-content i {
@@ -927,7 +918,6 @@ p {
     font-size: 1.2rem;
 }
 
-/* Help Section */
 .help-section {
     display: grid;
     grid-template-columns: 1fr;
@@ -993,7 +983,6 @@ p {
     margin: 0;
 }
 
-/* Footer */
 .footer {
     background: var(--bg-tertiary);
     padding: 3rem 0 1rem;
@@ -1058,7 +1047,6 @@ p {
     color: var(--text-secondary);
 }
 
-/* Loading Overlay */
 .loading-overlay {
     position: fixed;
     top: 0;
@@ -1113,7 +1101,7 @@ p {
     margin: 0;
 }
 
-/* Responsive Design */
+/* responsiveness settings  */
 @media (max-width: 1024px) {
     .header-content {
         grid-template-columns: 1fr;
@@ -1224,7 +1212,6 @@ p {
     }
 }
 
-/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
@@ -1233,13 +1220,11 @@ p {
     }
 }
 
-/* Focus Styles */
 *:focus {
     outline: 2px solid var(--primary);
     outline-offset: 2px;
 }
 
-/* Selection Styles */
 ::selection {
     background: var(--primary);
     color: white;
@@ -1250,7 +1235,7 @@ p {
     color: white;
 }
 
-/* Scrollbar */
+
 ::-webkit-scrollbar {
     width: 8px;
 }
