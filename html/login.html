@@ -13,14 +13,12 @@
 </head>
 
 <body>
-    <!-- Background with animated gradients -->
     <div class="background">
         <div class="gradient-bg-1"></div>
         <div class="gradient-bg-2"></div>
         <div class="gradient-bg-3"></div>
     </div>
 
-    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
@@ -41,10 +39,8 @@
         </div>
     </nav>
 
-    <!-- Login Container -->
     <div class="login-container">
         <div class="login-card">
-            <!-- Header -->
             <div class="login-header">
                 <div class="header-icon">
                     <i class="fas fa-handshake"></i>
@@ -53,9 +49,7 @@
                 <p>Sign in to your PharmaLedger account</p>
             </div>
 
-            <!-- Login Form -->
             <form class="login-form" id="login-form">
-                <!-- Username/Email Field -->
                 <div class="form-group">
                     <div class="input-wrapper">
                         <input type="email" id="email" name="email" required>
@@ -64,7 +58,6 @@
                     </div>
                 </div>
 
-                <!-- Password Field -->
                 <div class="form-group">
                     <div class="input-wrapper">
                         <input type="password" id="password" name="password" required>
@@ -76,13 +69,11 @@
                     </div>
                 </div>
 
-                <!-- Error Message -->
                 <div class="error-message" id="error-message" style="display: none;">
                     <i class="fas fa-exclamation-circle"></i>
                     <span id="error-text">Invalid email or password. Please try again.</span>
                 </div>
 
-                <!-- Remember Me & Forgot Password -->
                 <div class="form-options">
                     <label class="checkbox-wrapper">
                         <input type="checkbox" id="remember-me" name="remember-me">
@@ -92,20 +83,17 @@
                     <a href="#forgot-password" class="forgot-password">Forgot Password?</a>
                 </div>
 
-                <!-- Login Button -->
                 <button type="submit" class="login-btn" id="login-btn">
                     <span class="btn-text">Sign In</span>
                     <i class="fas fa-spinner fa-spin btn-spinner" style="display: none;"></i>
                 </button>
 
-                <!-- Success Message -->
                 <div class="success-message" id="success-message" style="display: none;">
                     <i class="fas fa-check-circle"></i>
                     <span>Login successful! Redirecting...</span>
                 </div>
             </form>
 
-            <!-- Registration Link -->
             <div class="login-footer">
                 <p>Don't have an account?
                     <a href="#register" class="register-link">Register here</a>
@@ -119,7 +107,6 @@
             </div>
         </div>
 
-        <!-- Additional Info Card -->
         <div class="info-card">
             <div class="info-header">
                 <i class="fas fa-info-circle"></i>
@@ -145,7 +132,6 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="login-footer-bottom">
         <div class="footer-content">
             <p>&copy; 20256 PharmaLedger. All rights reserved.</p>
@@ -157,7 +143,6 @@
         </div>
     </footer>
 
-    <!-- Loading Overlay -->
     <div class="loading-overlay" id="loading-overlay" style="display: none;">
         <div class="loading-spinner">
             <div class="spinner"></div>
