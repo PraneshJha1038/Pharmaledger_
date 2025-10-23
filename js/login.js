@@ -1,7 +1,4 @@
-// PharmaLedger Login Page JavaScript
-// ====================================
 
-// Theme Management
 class ThemeManager {
     constructor() {
         this.themeToggle = document.getElementById('theme-toggle');
@@ -36,7 +33,6 @@ class ThemeManager {
     }
 }
 
-// Form Handler
 class LoginForm {
     constructor() {
         this.form = document.getElementById('login-form');
@@ -52,13 +48,11 @@ class LoginForm {
     }
 
     init() {
-        // Form submission
         this.form?.addEventListener('submit', (e) => {
             e.preventDefault();
             this.handleLogin();
         });
 
-        // Password toggle
         this.passwordToggle?.addEventListener('click', () => {
             this.togglePasswordVisibility();
         });
@@ -72,7 +66,6 @@ class LoginForm {
             this.validateInput(this.passwordInput);
         });
 
-        // Real-time validation
         this.emailInput?.addEventListener('blur', () => {
             this.validateEmail();
         });
@@ -89,7 +82,7 @@ class LoginForm {
             input.classList.remove('has-value');
         }
     }
-
+    // constraints for email passwords and phone numbers and similar fields
     validateEmail() {
         const email = this.emailInput.value.trim();
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -116,10 +109,8 @@ class LoginForm {
     }
 
     showFieldError(input, message) {
-        // Remove existing error
         this.clearFieldError(input);
 
-        // Create error element
         const errorEl = document.createElement('div');
         errorEl.className = 'field-error';
         errorEl.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${message}`;
@@ -183,13 +174,11 @@ class LoginForm {
         this.setLoadingState(true);
 
         try {
-            // Simulate API call (replace with actual endpoint)
             const result = await this.authenticateUser(email, password, rememberMe);
 
             if (result.success) {
                 this.showSuccess('Login successful! Redirecting...');
 
-                // Store user session if remember me is checked
                 if (rememberMe) {
                     localStorage.setItem('userSession', JSON.stringify({
                         email: email,
@@ -199,7 +188,7 @@ class LoginForm {
                     }));
                 }
 
-                // Redirect based on user role
+                // Redirect based on role or id
                 setTimeout(() => {
                     this.redirectUser(result.role);
                 }, 2000);
@@ -215,12 +204,11 @@ class LoginForm {
             this.setLoadingState(false);
         }
     }
-
+    // HARDCODED AS OF NOW, PLANNING TO MAKE IT BETTER AS WE MOVE FURTHER ( out of ideas as of now )
     async authenticateUser(email, password, rememberMe) {
-        // Demo authentication logic (replace with actual API call)
         return new Promise((resolve) => {
             setTimeout(() => {
-                // Demo credentials for testing
+                // Demo credentials 
                 const demoUsers = {
                     'admin@pharmaledger.com': { password: 'admin123', role: 'admin', name: 'System Admin' },
                     'manufacturer@demo.com': { password: 'manu123', role: 'manufacturer', name: 'Demo Pharmaceuticals' },
@@ -284,7 +272,6 @@ class LoginForm {
         document.getElementById('error-text').textContent = message;
         this.errorMessage.style.display = 'flex';
 
-        // Auto hide after 5 seconds
         setTimeout(() => {
             this.hideMessages();
         }, 5000);
@@ -309,7 +296,6 @@ class LoginForm {
     }
 }
 
-// Session Manager
 class SessionManager {
     constructor() {
         this.init();
@@ -327,10 +313,9 @@ class SessionManager {
                 const sessionData = JSON.parse(session);
                 const currentTime = Date.now();
                 const sessionAge = currentTime - sessionData.timestamp;
-                const maxAge = 24 * 60 * 60 * 1000; // 24 hours
+                const maxAge = 24 * 60 * 60 * 1000; 
 
                 if (sessionAge < maxAge) {
-                    // Valid session exists, show option to continue
                     this.showContinueSession(sessionData);
                 } else {
                     // Session expired
@@ -342,7 +327,7 @@ class SessionManager {
             }
         }
     }
-
+ 
     showContinueSession(sessionData) {
         const notification = document.createElement('div');
         notification.className = 'session-notification';
