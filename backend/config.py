@@ -3,7 +3,7 @@ import os
 class Config:
     """Configuration class for Flask application"""
     SECRET_KEY = '46d77a9ec3a06af27bcdd45169cc203c'
-    
+    # all the links and secret keys are dummy
     # sql connextion
     SQLALCHEMY_DATABASE_URI = 'mysql+mysqlconnector://root:Shine2107@127.0.0.1:3306/pharmaledger'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
