@@ -258,7 +258,7 @@ p {
 
 .theme-toggle:hover {
     background: var(--text-primary);
-    color: white;
+    color: var(--bg-primary);
     border-color: var(--primary);
     transform: rotate(90deg);
     transition: transform 0.6s, color 0.6s, background 0.5s;
